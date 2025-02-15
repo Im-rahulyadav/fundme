@@ -1,13 +1,10 @@
-import { QueryClient , QueryClientProvider } from "@tanstack/react-query";
-import { WagmiProvider } from "wagmi";
-import { http , createConfig } from "wagmi";
+import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
 
-import { mainnet , sepolia } from "wagmi/chains";
 
-export const config = createConfig({
-    chains: [mainnet, sepolia],
-    transports : {
-        [mainnet.id]: http("https://mainnet.infura.io/v3/"),
-        [sepolia.id]: http("https://sepolia.infura.io/v3/")
-    }
-})
+export  const config = getDefaultConfig({
+  appName: 'My RainbowKit App',
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  chains: [mainnet, polygon, optimism, arbitrum, base],
+  ssr: true, // If your dApp uses server side rendering (SSR)
+});
