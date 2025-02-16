@@ -12,6 +12,7 @@
   "dependencies": {
     "@rainbow-me/rainbowkit": "^2.2.3",
     "@reown/walletkit": "^1.2.0",
+    "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-query": "^5.66.0",
     "@walletconnect/core": "^2.18.0",
     "@walletconnect/utils": "^2.18.0",
@@ -19,6 +20,7 @@
     "ethers": "^6.13.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.6",
     "wagmi": "^2.14.11"
   },
   "devDependencies": {

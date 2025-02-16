@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 import { config } from './context/Web3Provider.jsx'
 import { WagmiProvider } from 'wagmi'
-import { QueryClient , QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
+import { RainbowKitProvider , darkTheme  } from '@rainbow-me/rainbowkit'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import '@rainbow-me/rainbowkit/styles.css';
+import WriteContract from './components/WriteContract.jsx'
 
 
 const queryClient = new QueryClient()
@@ -18,9 +18,21 @@ function App() {
 
   return (
     <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient} > 
-        <RainbowKitProvider>
-            <ConnectButton />
+      <QueryClientProvider client={queryClient} >
+        <RainbowKitProvider modalSize="compact"  theme={darkTheme({
+          accentColor: '#7b3fe4',
+          accentColorForeground: 'white',
+          borderRadius: 'small',
+          fontStack: 'system',
+          overlayBlur: 'small',
+        })}>
+          <ConnectButton accountStatus={{
+            smallScreen: 'avatar',
+            largeScreen: 'full',
+          }} />
+
+            <WriteContract />
+
         </RainbowKitProvider>
 
       </QueryClientProvider>
